@@ -1,12 +1,374 @@
-print("chacko")
-print("chacko")print("chacko")print("chacko")
-print("chacko")
-print("chacko")
-print("chacko")print("chacko")
-print("chacko")
-print("chacko")print("chacko")print("chacko")
-print("chacko")
-print("chacko")
-print("chacko")
-print("chacko")
-print("chacko")print("chacko")print("chacko")print("chacko")
+
+import random
+from tkinter import *
+from PIL import ImageTk,Image
+import mysql.connector
+
+n=0
+p=0
+doing=''
+
+root=Tk()
+root.title('Snake and Ladder')
+root.iconbitmap('icon1.ico')
+root.geometry("500x550")
+
+def Refresh():
+    global root
+    root.destroy()
+    root=Tk()
+    root.title('Snake and Ladder')
+    root.iconbitmap('icon1.ico')
+    root.geometry("500x600")
+    return
+
+
+L=[]
+
+C=mysql.connector.connect(host='localhost',user='root',password='admin',database='ProjectSN')
+Curs=C.cursor()
+
+Username=""
+
+def image_loader():
+    global L
+    L=[]
+    Image1=ImageTk.PhotoImage(Image.open("Map 1.png"))
+    Image2=ImageTk.PhotoImage(Image.open("Map 2.png"))
+    Image3=ImageTk.PhotoImage(Image.open("Map 3.png"))
+    Image4=ImageTk.PhotoImage(Image.open("Map 4.png"))
+    Image5=ImageTk.PhotoImage(Image.open("Map 5.png"))
+    Image6=ImageTk.PhotoImage(Image.open("Map 6.png"))
+    Image7=ImageTk.PhotoImage(Image.open("Map 7.png"))
+    Image8=ImageTk.PhotoImage(Image.open("Map 8.png"))
+    Image9=ImageTk.PhotoImage(Image.open("Map 9.png"))
+    Image10=ImageTk.PhotoImage(Image.open("Map 10.png"))
+    Image11=ImageTk.PhotoImage(Image.open("Map 11.png"))
+    Image12=ImageTk.PhotoImage(Image.open("Map 12.png"))
+    Image13=ImageTk.PhotoImage(Image.open("Map 13.png"))
+    Image14=ImageTk.PhotoImage(Image.open("Map 14.png"))
+    Image15=ImageTk.PhotoImage(Image.open("Map 15.png"))
+    Image16=ImageTk.PhotoImage(Image.open("Map 16.png"))
+    Image17=ImageTk.PhotoImage(Image.open("Map 17.png"))
+    Image18=ImageTk.PhotoImage(Image.open("Map 18.png"))
+    Image19=ImageTk.PhotoImage(Image.open("Map 19.png"))
+    Image20=ImageTk.PhotoImage(Image.open("Map 20.png"))
+    Image21=ImageTk.PhotoImage(Image.open("Map 21.png"))
+    Image22=ImageTk.PhotoImage(Image.open("Map 22.png"))
+    Image23=ImageTk.PhotoImage(Image.open("Map 23.png"))
+    Image24=ImageTk.PhotoImage(Image.open("Map 24.png"))
+    Image25=ImageTk.PhotoImage(Image.open("Map 25.png"))
+    Image26=ImageTk.PhotoImage(Image.open("Map 26.png"))
+    Image27=ImageTk.PhotoImage(Image.open("Map 27.png"))
+    Image28=ImageTk.PhotoImage(Image.open("Map 28.png"))
+    Image29=ImageTk.PhotoImage(Image.open("Map 29.png"))
+    Image30=ImageTk.PhotoImage(Image.open("Map 30.png"))
+    Image31=ImageTk.PhotoImage(Image.open("Map 31.png"))
+    Image32=ImageTk.PhotoImage(Image.open("Map 32.png"))
+    Image33=ImageTk.PhotoImage(Image.open("Map 33.png"))
+    Image34=ImageTk.PhotoImage(Image.open("Map 34.png"))
+    Image35=ImageTk.PhotoImage(Image.open("Map 35.png"))
+    Image36=ImageTk.PhotoImage(Image.open("Map 36.png"))
+    Image37=ImageTk.PhotoImage(Image.open("Map 37.png"))
+    Image38=ImageTk.PhotoImage(Image.open("Map 38.png"))
+    Image39=ImageTk.PhotoImage(Image.open("Map 39.png"))
+    Image40=ImageTk.PhotoImage(Image.open("Map 40.png"))
+    Image41=ImageTk.PhotoImage(Image.open("Map 41.png"))
+    Image42=ImageTk.PhotoImage(Image.open("Map 42.png"))
+    Image43=ImageTk.PhotoImage(Image.open("Map 43.png"))
+    Image44=ImageTk.PhotoImage(Image.open("Map 44.png"))
+    Image45=ImageTk.PhotoImage(Image.open("Map 45.png"))
+    Image46=ImageTk.PhotoImage(Image.open("Map 46.png"))
+    Image47=ImageTk.PhotoImage(Image.open("Map 47.png"))
+    Image48=ImageTk.PhotoImage(Image.open("Map 48.png"))
+    Image49=ImageTk.PhotoImage(Image.open("Map 49.png"))
+    Image50=ImageTk.PhotoImage(Image.open("Map 50.png"))
+    Image51=ImageTk.PhotoImage(Image.open("Map 51.png"))
+    Image52=ImageTk.PhotoImage(Image.open("Map 52.png"))
+    Image53=ImageTk.PhotoImage(Image.open("Map 53.png"))
+    Image54=ImageTk.PhotoImage(Image.open("Map 54.png"))
+    Image55=ImageTk.PhotoImage(Image.open("Map 55.png"))
+    Image56=ImageTk.PhotoImage(Image.open("Map 56.png"))
+    Image57=ImageTk.PhotoImage(Image.open("Map 57.png"))
+    Image58=ImageTk.PhotoImage(Image.open("Map 58.png"))
+    Image59=ImageTk.PhotoImage(Image.open("Map 59.png"))
+    Image60=ImageTk.PhotoImage(Image.open("Map 60.png"))
+    Image61=ImageTk.PhotoImage(Image.open("Map 61.png"))
+    Image62=ImageTk.PhotoImage(Image.open("Map 62.png"))
+    Image63=ImageTk.PhotoImage(Image.open("Map 63.png"))
+    Image64=ImageTk.PhotoImage(Image.open("Map 64.png"))
+    Image65=ImageTk.PhotoImage(Image.open("Map 65.png"))
+    Image66=ImageTk.PhotoImage(Image.open("Map 66.png"))
+    Image67=ImageTk.PhotoImage(Image.open("Map 67.png"))
+    Image68=ImageTk.PhotoImage(Image.open("Map 68.png"))
+    Image69=ImageTk.PhotoImage(Image.open("Map 69.png"))
+    Image70=ImageTk.PhotoImage(Image.open("Map 70.png"))
+    Image71=ImageTk.PhotoImage(Image.open("Map 71.png"))
+    Image72=ImageTk.PhotoImage(Image.open("Map 72.png"))
+    Image73=ImageTk.PhotoImage(Image.open("Map 73.png"))
+    Image74=ImageTk.PhotoImage(Image.open("Map 74.png"))
+    Image75=ImageTk.PhotoImage(Image.open("Map 75.png"))
+    Image76=ImageTk.PhotoImage(Image.open("Map 76.png"))
+    Image77=ImageTk.PhotoImage(Image.open("Map 77.png"))
+    Image78=ImageTk.PhotoImage(Image.open("Map 78.png"))
+    Image79=ImageTk.PhotoImage(Image.open("Map 79.png"))
+    Image80=ImageTk.PhotoImage(Image.open("Map 80.png"))
+    Image81=ImageTk.PhotoImage(Image.open("Map 81.png"))
+    Image82=ImageTk.PhotoImage(Image.open("Map 82.png"))
+    Image83=ImageTk.PhotoImage(Image.open("Map 83.png"))
+    Image84=ImageTk.PhotoImage(Image.open("Map 84.png"))
+    Image85=ImageTk.PhotoImage(Image.open("Map 85.png"))
+    Image86=ImageTk.PhotoImage(Image.open("Map 86.png"))
+    Image87=ImageTk.PhotoImage(Image.open("Map 87.png"))
+    Image88=ImageTk.PhotoImage(Image.open("Map 88.png"))
+    Image89=ImageTk.PhotoImage(Image.open("Map 89.png"))
+    Image90=ImageTk.PhotoImage(Image.open("Map 90.png"))
+    Image91=ImageTk.PhotoImage(Image.open("Map 91.png"))
+    Image92=ImageTk.PhotoImage(Image.open("Map 92.png"))
+    Image93=ImageTk.PhotoImage(Image.open("Map 93.png"))
+    Image94=ImageTk.PhotoImage(Image.open("Map 94.png"))
+    Image95=ImageTk.PhotoImage(Image.open("Map 95.png"))
+    Image96=ImageTk.PhotoImage(Image.open("Map 96.png"))
+    Image97=ImageTk.PhotoImage(Image.open("Map 97.png"))
+    Image98=ImageTk.PhotoImage(Image.open("Map 98.png"))
+    Image99=ImageTk.PhotoImage(Image.open("Map 99.png"))
+    Image100=ImageTk.PhotoImage(Image.open("Map 100.png"))
+    Image101=ImageTk.PhotoImage(Image.open("icon1.png"))
+    dice=ImageTk.PhotoImage(Image.open('roll-the-dice.gif'))
+    L.append(Image1)
+    L.append(Image2)
+    L.append(Image3)
+    L.append(Image4)
+    L.append(Image5)
+    L.append(Image6)
+    L.append(Image7)
+    L.append(Image8)
+    L.append(Image9)
+    L.append(Image10)
+    L.append(Image11)
+    L.append(Image12)
+    L.append(Image13)
+    L.append(Image14)
+    L.append(Image15)
+    L.append(Image16)
+    L.append(Image17)
+    L.append(Image18)
+    L.append(Image19)
+    L.append(Image20)
+    L.append(Image21)
+    L.append(Image22)
+    L.append(Image23)
+    L.append(Image24)
+    L.append(Image25)
+    L.append(Image26)
+    L.append(Image27)
+    L.append(Image28)
+    L.append(Image29)
+    L.append(Image30)
+    L.append(Image31)
+    L.append(Image32)
+    L.append(Image33)
+    L.append(Image34)
+    L.append(Image35)
+    L.append(Image36)
+    L.append(Image37)
+    L.append(Image38)
+    L.append(Image39)
+    L.append(Image40)
+    L.append(Image41)
+    L.append(Image42)
+    L.append(Image43)
+    L.append(Image44)
+    L.append(Image45)
+    L.append(Image46)
+    L.append(Image47)
+    L.append(Image48)
+    L.append(Image49)
+    L.append(Image50)
+    L.append(Image51)
+    L.append(Image52)
+    L.append(Image53)
+    L.append(Image54)
+    L.append(Image55)
+    L.append(Image56)
+    L.append(Image57)
+    L.append(Image58)
+    L.append(Image59)
+    L.append(Image60)
+    L.append(Image61)
+    L.append(Image62)
+    L.append(Image63)
+    L.append(Image64)
+    L.append(Image65)
+    L.append(Image66)
+    L.append(Image67)
+    L.append(Image68)
+    L.append(Image69)
+    L.append(Image70)
+    L.append(Image71)
+    L.append(Image72)
+    L.append(Image73)
+    L.append(Image74)
+    L.append(Image75)
+    L.append(Image76)
+    L.append(Image77)
+    L.append(Image78)
+    L.append(Image79)
+    L.append(Image80)
+    L.append(Image81)
+    L.append(Image82)
+    L.append(Image83)
+    L.append(Image84)
+    L.append(Image85)
+    L.append(Image86)
+    L.append(Image87)
+    L.append(Image88)
+    L.append(Image89)
+    L.append(Image90)
+    L.append(Image91)
+    L.append(Image92)
+    L.append(Image93)
+    L.append(Image94)
+    L.append(Image95)
+    L.append(Image96)
+    L.append(Image97)
+    L.append(Image98)
+    L.append(Image99)
+    L.append(Image100)
+    L.append(Image101)
+    L.append(dice)
+
+
+def Clear():
+    global doing
+    a=0
+    Refresh()
+    if doing=="after":
+        Gui2()
+
+def dice_roll():
+    global n
+    global Button1
+    n=random.randint(1,6)
+    Button1=Button(root,text="Proceed",command=check)
+    Button1.pack()
+    diceroll=Label(image=L[101])
+    diceroll.pack()
+    try:
+        my_label.pack_forget()
+    except:
+        print("")
+    root.after(3000,diceroll.destroy)
+
+def check():
+    global L
+    global n
+    global p
+    global my_label
+    p+=n
+    for i in range(1,101):
+        if i==p:
+            my_label=Label(image=L[i-1])
+            my_label.pack()
+            Button1.pack_forget()
+    
+  
+def Buttons():
+    Clear()
+    image_loader()
+    Button1=Button(root,text='Roll the Dice',command=dice_roll)
+    Button1.pack()
+    Button2=Button(root,text="Save game",command=Save)
+    Button2.pack()
+    Button3=Button(root,text="Quit",command=exit)
+    Button3.pack()
+image_loader()
+
+def Login():
+    global doing
+    doing='after'
+    print("hi")
+
+def Save():
+    global p
+    global Username
+    if Username=="":
+        label=Label(text="Sorry you need to Login to be able to save the game").pack()
+    else:
+        Curs.execute("insert into saved_games values('{}',{})".format(Username,p))
+        C.commit()
+
+def Signup():
+    global doing
+    doing="after"
+    Label1=Label(root,text='User name:')
+    Label1.pack()
+    Name=Entry(root,width=50,borderwidth=5)
+    Name.pack()
+    Label2=Label(root,text='Password:')
+    Label2.pack()
+    Pass=Entry(root, width=50,borderwidth=5)
+    Pass.pack()
+    def get():
+        global Username
+        global C
+        global Curs
+        u=Name.get()
+        p=Pass.get()
+        a=str(u)
+        b=str(p)
+        n=0
+        try:
+            Curs.execute("insert into User_data values('{}','{}')".format(a,b))
+            C.commit()
+            Username=a
+            root.after(2000,command=Clear)
+        except:
+            Label1=Label(text='sorry username already exists')
+            Label1.pack()
+            Username=a
+            root.after(2000,Clear)
+            while n!=0:
+                Clear()
+                
+        
+        
+        
+    button1=Button(root,text='Sign up',command=get)
+    button1.pack()
+
+def Play_new():
+    Buttons()
+
+def Gui():
+    Clear()
+    image_loader()
+    n=L[100]
+    label1=Label(image=n)
+    label1.pack()
+    Button1=Button(root,text='Sign up',borderwidth=5,command=Signup)
+    Button1.pack()
+    Button2=Button(root,text='Login',borderwidth=5,command=Login)
+    Button2.pack()
+    Button3=Button(root,text='Play as guest',borderwidth=5,command=Play_new)
+    Button3.pack()
+    Button4=Button(root,text="Quit",borderwidth=5,command=exit)
+    Button4.pack()
+
+def Gui2():
+    global doing
+    doing=""
+    image_loader()
+    lab=Label(image=L[100]).pack()
+    Button1=Button(root,text='Play a new game',borderwidth=5,command=Buttons)
+    Button1.pack()
+    Button2=Button(root,text='Open up a saved game',borderwidth=5,command=Login)
+    Button2.pack()
+    Button3=Button(root,text='Log-out',borderwidth=5,command=Gui)
+    Button3.pack()
+    Button4=Button(root,text="Quit",borderwidth=5,command=exit)
+    Button4.pack()
+
+
+
+Gui()
